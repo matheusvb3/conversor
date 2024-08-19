@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "conversor"
+dynamic = ["version"]
+description = "Converte entre graus Celsius e graus Fahrenheit e vice-versa"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Matheus", email = "matheus.venturini@acad.ufsm.br" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[tool.hatch.envs.default]
+dependencies = [
+    "pytest",
+    "ruff",
+    "mypy",
+    "sphinx",
+    "myst-parser" # Para usar Markdown com o Sphinx
+]
+
+[tool.hatch.version]
+path = "src/conversor/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/conversor tests}"
+
+[tool.coverage.run]
+source_pkgs = ["conversor", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/conversor/__about__.py",
+]
+
+[tool.coverage.paths]
+conversor = ["src/conversor", "*/conversor/src/conversor"]
+tests = ["tests", "*/conversor/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
