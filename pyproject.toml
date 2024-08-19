@@ -21,7 +21,7 @@ dependencies = [ # Aqui estão as dependências para quem for trabalhar com o de
     "ruff",
     "mypy",
     "sphinx",
-    "myst-parser" # Para usar Markdown com o Sphinx
+    "myst-parser" # Para usar Markdown com o Sphinx. Neste projeto não será usado, mas vou deixar incluso apneas por acaso.
 ]
 
 [tool.hatch.version]

@@ -1,6 +1,8 @@
 import os
 import sys
 
+sys.path.insert(0, os.path.abspath('../src')) # Informa onde está o diretório contendo o código fonte
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -19,7 +21,7 @@ release = '2024'
 
 extensions = [
     'sphinx.ext.autodoc', # Usado para que o Sphinx faça parse das docstrings nos arquivos de código fonte do projeto
-    'myst_parser'
+    'sphinx.ext.viewcode' # Usado para que seja incluído um botão para mostrar o código fonte de uma função na documentação
 ]
 
 templates_path = ['_templates']
@@ -33,4 +35,4 @@ language = 'pt_BR'
 html_theme = 'alabaster'
 html_static_path = ['_static']
 
-sys.path.insert(0, os.path.abspath('../src')) # Informa onde está o diretório contendo o código fonte
+master_doc = 'index' # Por padrão o Sphinx espera que a página inicial da documentação seja "contents.html", mas como iremos utilizar "index.html" temos que especificar isto
