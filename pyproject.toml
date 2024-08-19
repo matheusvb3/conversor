@@ -4,30 +4,19 @@ build-backend = "hatchling.build"
 
 [project]
 name = "conversor"
-dynamic = ["version"]
+dynamic = ["version"] # Indica que a string que indica a versão do projeto é "dinâmica" e será determinada em outro arquivo, neste caso src/conversor/__about__.py
 description = "Converte entre graus Celsius e graus Fahrenheit e vice-versa"
 readme = "README.md"
 requires-python = ">=3.8"
 license = "MIT"
-keywords = []
+keywords = ["temperatura", "celsius", "fahrenheit"]
 authors = [
   { name = "Matheus", email = "matheus.venturini@acad.ufsm.br" },
 ]
-classifiers = [
-  "Development Status :: 4 - Beta",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: Implementation :: CPython",
-  "Programming Language :: Python :: Implementation :: PyPy",
-]
-dependencies = []
+dependencies = [] # Aqui vão as dependências para quem for rodar o projeto utilizando "pip install conversor" 
 
 [tool.hatch.envs.default]
-dependencies = [
+dependencies = [ # Aqui estão as dependências para quem for trabalhar com o desenvolvimento do projeto
     "pytest",
     "ruff",
     "mypy",
